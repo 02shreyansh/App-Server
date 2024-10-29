@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import jwt from "jsonwebtoken";
 const userSchema=new mongoose.Schema({
     email:{
         type:String,
@@ -44,6 +45,21 @@ const userSchema=new mongoose.Schema({
 },
     {timestamps:true}
 );
+userSchema.methods.createAccessToken=function(){
+    return jwt.sign(
+        {userId:this._id,name:this.name},
+        process.env.ACCESS_TOKEN_SECRET,
+        {expiresIn:process.env.ACCESS_TOKEN_EXPIRY}
+    );
+}
+userSchema.methods.createRefreshToken=function(){
+    return jwt.sign(
+        {userId:this._id},
+        process.env.REFRESH_TOKEN_SECRET,
+        {expiresIn:process.env.REFRESH_TOKEN_EXPIRY}
+
+    )
+}
 userSchema.index({followers:1});
 userSchema.index({following:1});
 export const User=mongoose.model("User",userSchema)

@@ -5,4 +5,12 @@ import {Like} from "./likes.js";
 import { Reply } from "./Reply.js";
 import { Reward } from "./Reward.js";
 import { UserHistory } from "./UserHistory.js";
-export {User,Reels,Comment,Like,Reply,Reward,UserHistory}
+export {
+    User,
+    Reels,
+    Comment,
+    Like,
+    Reply,
+    Reward,
+    UserHistory
+}

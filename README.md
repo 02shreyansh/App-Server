@@ -1,23 +1,69 @@
-# XGram Server
+# App-Server
+---
+## Prerequisites
 
-Welcome to the XGram Server repository! This Node.js application serves as the backend for the XGram project. Below, you'll find detailed instructions for setting up the development environment, configuring environment variables, and getting the server up and running.
+Before you begin, ensure you have met the following requirements:
 
-## Table of Contents
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Running the Server](#running-the-server)
-- [Contributing](#contributing)
-- [License](#license)
+- Node.js (v20 or later)
+- npm (v9 or later)
+- MongoDB (v7 or later)
+- Git
+
+---
+## Installation
+
+To install App-Server, follow these steps:
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/02shreyansh/App-Server.git
+   cd App-Server
+   ```
+
+2. Install dependencies for  the server:
+   ```
+   npm install
+   ```
+
+3. Create a `.env` file in the root directory and add the following environment variables:
+   ```
+   PORT=3000
+   MONGO_URI=your_mongodb_connection_string
+
+   ACCESS_TOKEN_SECRET=your_ACCESS_TOKEN_SECRET
+   ACCESS_TOKEN_EXPIRY=your_ACCESS_TOKEN_EXPIRY
+   REFRESH_TOKEN_SECRET=your_REFRESH_TOKEN_SECRET
+   REFRESH_TOKEN_EXPIRY=your_REFRESH_TOKEN_EXPIRY
+   GOOGLE_CLIENT_ID=XXXXXXXXXXXXXXsampleABCD.googleusercontent.com
+
+   CLOUD_NAME=your_cloudinary_cloud_name
+   CLOUD_API=your_cloudinary_api_key
+   CLOUD_SECRET=your_cloudinary_api_secret
+   ```
+
+   Replace the placeholder values with your actual configuration details.
 
 ---
 
-## Installation
+## Contributing
 
-Before starting, ensure that you have **Node.js** and **npm** installed on your system. You can download them from the [official Node.js website](https://nodejs.org/).
+We welcome contributions to App-Server! Here's how you can contribute:
 
-Clone this repository to your local machine:
-```bash
-git clone https://github.com/02shreyansh/App-Server.git
+1. Fork the repository.
+2. Create a new branch: `git checkout -b feature/your-feature-name`.
+3. Make your changes and commit them: `git commit -m 'Add some feature'`.
+4. Push to the branch: `git push origin feature/your-feature-name`.
+5. Submit a pull request.
 
-```bash
-cd App-Server
+Please make sure to update tests as appropriate and adhere to the existing coding style.
+---
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+---
+## Contact
+
+If you have any questions or feedback, please reach out to us at [shreyansh2102004@gmail.com](mailto:shreyansh2102004@gmail.com).
+
+Thank you for your interest in App-Server!
+Happy Coding!!

@@ -22,7 +22,7 @@ const getLikedVideos=async(req,res)=>{
             reel:{$exists: true},
         }).populate({
             path:"reel",
-            populate: { path: "user", select: "username userImage name id" },
+            populate: { path: "user", select: "userName userImage name id" },
             select: "-likes -comments",
         }).skip(parseInt(offset))
         .limit(parseInt(limit))
@@ -83,7 +83,7 @@ const getReelPosts = async (req, res) => {
             .sort({ createdAt: -1 })
             .skip(parseInt(offset))
             .limit(parseInt(limit))
-            .populate("user", "name userImage username id")
+            .populate("user", "name userImage userName id")
             .select("-comments -likes")
             .exec();
         const reelIds = myReelPosts.map((reel) => reel._id);
@@ -144,7 +144,7 @@ const getAllHistoryReels = async (req, res) => {
             .map((historyReel) => historyReel.reel);
         const reels = await Reels.find({ _id: { $in: historyReelIds } })
         .select("-comments -likes")
-        .populate("user", "name userImage username id")
+        .populate("user", "name userImage userName id")
         .exec();
 
         const [likesCounts, commentsCounts, likedReels] = await Promise.all([
@@ -278,7 +278,7 @@ const getHomeFeed = async (req, res) => {
                 .sort(options.sort || { createdAt: -1 })
                 .limit(options.limit || limit)
                 .select("-likes -comments")
-                .populate("user", "username name id userImage")
+                .populate("user", "userName name id userImage")
                 .exec();
         };
 
@@ -324,7 +324,7 @@ const getHomeFeed = async (req, res) => {
                   likesCount: 1,
                   commentsCount: 1,
                   user: {
-                    username: "$user.username",
+                    userName: "$user.userName",
                     name: "$user.name",
                     id: "$user._id",
                     userImage: "$user.userImage",
@@ -363,7 +363,7 @@ const getHomeFeed = async (req, res) => {
             createdAt: reel.createdAt,
             user: {
               _id: reel.user.id,
-              username: reel.user.username,
+              username: reel.user.userName,
               name: reel.user.name,
               userImage: reel.user.userImage,
               isFollowing: user.following.includes(reel.user.id),

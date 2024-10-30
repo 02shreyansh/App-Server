@@ -15,17 +15,25 @@ import commentRouter from "./routes/comment.js";
 import feedRouter from "./routes/feed.js";
 import reelRouter from "./routes/reel.js";
 import likeRouter from "./routes/like.js";
+import replyRouter from "./routes/reply.js"
+import rewardRouter from "./routes/reward.js"
+import fileRouter from "./routes/file.js";
+import shareRouter from "./routes/share.js";
 
 const app=express();
 app.use(express.json())
 
 // Routers use
 app.use("/oauth",authRouter)
+app.use("/file",fileRouter)
+app.use("/share",shareRouter)
 app.use("/user",authMiddleware,userRouter);
 app.use("/comment",authMiddleware,commentRouter)
 app.use("/feed",authMiddleware,feedRouter)
 app.use("/like",authMiddleware,likeRouter)
 app.use("/reel",authMiddleware,reelRouter)
+app.use("/reply",authMiddleware,replyRouter)
+app.use("/reward",authMiddleware,rewardRouter)
 
 // middleware
 app.use(notFound);

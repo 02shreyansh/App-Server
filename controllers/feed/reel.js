@@ -37,7 +37,7 @@ const getReelById = async (req, res) => {
 
     try {
         const reel = await Reel.findById(reelId)
-            .populate("user", "username name userImage id")
+            .populate("user", "userName name userImage id")
             .select("-likes -comments");
 
         if (!reel) {
@@ -63,7 +63,7 @@ const getReelById = async (req, res) => {
             commentsCount,
             user: {
                 _id: reel.user.id,
-                username: reel.user.username,
+                username: reel.user.userName,
                 name: reel.user.name,
                 userImage: reel.user.userImage,
                 isFollowing,

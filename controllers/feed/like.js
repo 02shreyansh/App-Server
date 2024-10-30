@@ -135,7 +135,7 @@ const listLikes = async (req, res) => {
         let query = {};
         let populateQuery = {
             path: "user",
-            select: "username userImage name id",
+            select: "userName userImage name id",
         };
         if (type === "reel") {
             query.reel = entityId;
@@ -149,7 +149,7 @@ const listLikes = async (req, res) => {
         if (searchQuery) {
             populateQuery.match = {
               $or: [
-                { username: { $regex: searchQuery, $options: "i" } },
+                { userName: { $regex: searchQuery, $options: "i" } },
                 { name: { $regex: searchQuery, $options: "i" } },
               ],
             };

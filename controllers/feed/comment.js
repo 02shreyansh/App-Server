@@ -22,8 +22,8 @@ const getPaginatedComments=async(req,res)=>{
             .limit(parseInt(limit))
             .skip(parseInt(offset))
             .select("-likes")
-            .populate("user", "username userImage id name")
-            .populate("replies.user", "username userImage id name")
+            .populate("user", "userName userImage id name")
+            .populate("replies.user", "userName userImage id name")
             .exec()
         const commentIds=comments.map((comment)=>comment._id)
 

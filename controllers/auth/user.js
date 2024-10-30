@@ -142,7 +142,7 @@ const getFollowers=async(req,res)=>{
                         $regex:searchText,
                         $options:"i"
                     }},
-                    { username: { $regex: searchText, $options: "i" } },
+                    { userName: { $regex: searchText, $options: "i" } },
                 ],
             },
         },
@@ -154,7 +154,7 @@ const getFollowers=async(req,res)=>{
         {
             $project:{
                 name: 1,
-                username: 1,
+                userName: 1,
                 userImage: 1,
                 id: 1,
                 isFollowing: 1,
@@ -204,14 +204,14 @@ const getFollowing = async (req, res) => {
         $match: {
           $or: [
             { name: { $regex: searchText, $options: "i" } },
-            { username: { $regex: searchText, $options: "i" } },
+            { userName: { $regex: searchText, $options: "i" } },
           ],
         },
       },
       {
         $project: {
           name: 1,
-          username: 1,
+          userName: 1,
           userImage: 1,
           id: 1,
           isFollowing: 1,
@@ -242,7 +242,7 @@ const getUsersBySearch = async (req, res) => {
       searchQuery = {
         $or: [
           { name: { $regex: searchText, $options: "i" } },
-          { username: { $regex: searchText, $options: "i" } },
+          { userName: { $regex: searchText, $options: "i" } },
         ],
       };
     }
@@ -264,7 +264,7 @@ const getUsersBySearch = async (req, res) => {
       {
         $project: {
           _id: 1,
-          username: 1,
+          userName: 1,
           userImage: 1,
           name: 1,
         },

@@ -19,36 +19,5 @@ Clone this repository to your local machine:
 ```bash
 git clone https://github.com/02shreyansh/App-Server.git
 
-Navigate to the project directory:
-
-bash
-Copy code
+```bash
 cd App-Server
-Rename the environment template file to .env based on your environment (local or production):
-
-bash
-Copy code
-mv env_template .env
-
-
-Configuration
-Open the .env file in your preferred text editor and enter the required configuration details. For guidance on configuring your environment, refer to the XGram YouTube Playlist or other available documentation.
-
-Running the Server
-Once the .env file is configured, install the dependencies and start the server by running:
-
-bash
-Copy code
-npm install
-npm start
-This will install the necessary dependencies and start the server on the specified port as per your configuration.
-
-Contributing
-If you'd like to contribute to this project, please fork the repository and create a pull request with your changes. We welcome any contributions, whether it's fixing bugs, adding features, or improving documentation.
-
-For any questions or assistance, feel free to reach out at shreyansh2102004@gmail.com.
-
-License
-This project is licensed under the MIT License, which allows you to use, modify, and distribute the code as long as you include the original license in your distribution.
-
-Happy coding!
